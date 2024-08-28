@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess My Number!</title>
+    <link rel="stylesheet" href="styles/style.css" media="all">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header>
+        <button class="button again">Again</button>
+        <p>(Between 1 and <span class="range">20</span>)</p>
+    </header>
+    
+    <main>
+        <h1 class="title">Guess My Number!</h1>
+
+        <div class="numberContainer"><span class="number">?</span></div>
+        
+        <section class="game">
+            <section class="left">
+                <input type="number" name="numberInput" id="iNumberInput" class="guess" min="0" max="999">
+                <button class="button check">Check!</button>
+            </section>
+            
+            <section class="right">
+                <p class="message">Start guessing...</p>
+
+                <p>Score: <span class="score"></span></p>
+
+                <p>Highscore: <span class="highscore">0</span></p>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <button class="settings"><span class="material-symbols-outlined">
+            settings
+            </span></button>
+       
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
