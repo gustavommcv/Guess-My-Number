@@ -14,8 +14,33 @@ const originalMessage = message.textContent;
 const numberHTML = document.querySelector('.number');
 
 const body = document.querySelector('body');
+const settingsSection = document.querySelector('section.hidden');
 
 let gameFinished = false;
+
+const overlay = document.querySelector('.overlay');
+
+// Toggle settings menu when the button is clicked
+document.querySelector('.settings').addEventListener('click', () => {
+    settingsSection.classList.toggle('active');
+    overlay.classList.toggle('active')
+});
+
+// Closes the menu if the overlay is clicked
+document.querySelector('.overlay').addEventListener('click', () => {
+    if (settingsSection.classList.contains('active')) {
+        settingsSection.classList.remove('active');
+        overlay.classList.toggle('active')
+    }
+});
+
+// Closes the menu if the esc key is pressed
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && settingsSection.classList.contains('active')) {
+        settingsSection.classList.remove('active');
+        overlay.classList.toggle('active')
+    }
+});
 
 document.querySelector('.check').addEventListener('click', () => {
     const guessNumber = Number(document.querySelector('.guess').value);
@@ -63,7 +88,6 @@ function updatePageWin() {
     gameFinished = true;
     setMessage('Correct number!');
     
-    // Atualiza o highscore apenas se o score atual for maior que o highscore
     if (score > highscore) {
         highscore = score;
         document.querySelector('.highscore').textContent = highscore;
